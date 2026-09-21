@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const countries = await getCollection('regions');
+const byRegion = Map.groupBy(countries, (entry) => entry.data.region);
+---
+
+<Layout
+  title="Link Building by Country"
+  description="International link building services across Europe, Latin America, APAC, North America and beyond, delivered by native-language, in-market specialists."
+>
+  <section class="px-6 pt-20 pb-16 lg:px-8 lg:pt-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+        Link Building
+      </p>
+      <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl" style="animation-delay: 80ms">
+        Link building, by market.
+      </h1>
+      <p class="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-ink/70 dark:text-paper/70" style="animation-delay: 160ms">
+        Outreach run by in-market specialists in the local language — not a single strategy translated across borders.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-8">
+    <div class="mx-auto max-w-5xl space-y-12" data-reveal-group>
+      {[...byRegion.entries()].map(([region, entries]) => (
+        <div>
+          <h2 class="font-display text-xl font-semibold">{region}</h2>
+          <div class="mt-4 flex flex-wrap gap-3">
+            {entries.map((entry) => (
+              <a
+                href={`/link-building/${entry.id}`}
+                class="rounded-full border border-ink/10 px-5 py-2.5 text-sm font-medium transition-colors hover:border-brand-400/50 hover:bg-brand-50 dark:border-paper/15 dark:hover:bg-brand-900/20"
+              >
+                {entry.data.country}
+              </a>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>

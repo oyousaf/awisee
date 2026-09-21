@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const steps = [
+  {
+    title: 'Find the angle worth covering',
+    body: 'Data studies, original research and newsworthy hooks are developed from your existing expertise — not generic press releases nobody will run.',
+  },
+  {
+    title: 'Pitch journalists who actually cover your beat',
+    body: 'Outreach goes to relevant editors and reporters, not a mass-blasted list bought from a database.',
+  },
+  {
+    title: 'Secure coverage that counts twice',
+    body: 'Each placement is chosen to build both brand authority and search equity — earned media and SEO stop being separate line items.',
+  },
+  {
+    title: 'Report on reach and rankings together',
+    body: 'You get coverage volume and domain authority gained, alongside the organic traffic and ranking movement that followed.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How is this different from a traditional PR agency?',
+    answer: 'A traditional PR agency optimises for coverage volume and brand mentions. We optimise for coverage that also earns a link and moves rankings — the campaign is built with SEO in mind from the first pitch.',
+  },
+  {
+    question: 'Do you write the story angle, or do we?',
+    answer: 'We develop the angle collaboratively, usually from data you already have — customer surveys, usage statistics, or industry benchmarks nobody else has published yet.',
+  },
+  {
+    question: 'What if a story doesn’t land any coverage?',
+    answer: 'We pitch multiple angles per cycle precisely because hit rates vary. You’ll see the outreach volume and response rate, not just the wins.',
+  },
+];
+---
+
+<Layout
+  title="Digital PR"
+  description="Earned coverage that builds authority and drives organic traffic in one motion, rather than treating press and SEO as separate budgets."
+>
+  <ServiceDetail
+    eyebrow="Digital PR"
+    title="Coverage that earns a link, not just a mention."
+    intro="Press and SEO run as one campaign — every pitch is built to earn authority and organic traffic at the same time."
+    steps={steps}
+    faqs={faqs}
+  />
+</Layout>

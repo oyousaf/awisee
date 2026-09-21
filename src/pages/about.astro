@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stats = [
+  { value: '2018', label: 'Founded' },
+  { value: '20+', label: 'In-house specialists' },
+  { value: '250K+', label: 'Sites in our network' },
+  { value: '35+', label: 'Countries served' },
+];
+
+const principles = [
+  {
+    title: 'Data-driven, not vibes-driven',
+    body: 'Every programme is tracked against rankings, referral traffic and revenue impact — not vanity metrics dressed up in a monthly report.',
+  },
+  {
+    title: 'One team, full funnel',
+    body: 'Link building, SEO, digital PR and influencer marketing sit under one roof, so strategy doesn’t fracture across three separate vendors.',
+  },
+  {
+    title: 'Built for tough niches',
+    body: 'iGaming, crypto, SaaS and other heavily regulated or heavily contested markets are where generic playbooks fail fastest — and where we’ve built our reputation instead.',
+  },
+  {
+    title: 'Long-term partners',
+    body: 'Most of our client relationships run for years, not campaigns. We’d rather compound results with a handful of partners than chase quarterly logos.',
+  },
+];
+
+const testimonials = [
+  {
+    quote: 'AWISEE moved our organic traffic in ways previous agencies never managed.',
+    name: 'Priya Nair',
+    role: 'Head of SEO, GetSmarter',
+  },
+  {
+    quote: 'Six months in, referral domains and organic leads had roughly doubled.',
+    name: 'Elena Kowalski',
+    role: 'VP Marketing, Surfshark',
+  },
+];
+
+const regions = [
+  'United Kingdom', 'Germany', 'Netherlands', 'Italy', 'France', 'Spain', 'Switzerland', 'Belgium',
+  'Sweden', 'Denmark', 'Finland', 'Poland', 'Czech Republic', 'Hungary', 'Romania', 'Croatia',
+  'Ukraine', 'Estonia', 'Australia', 'Japan', 'South Korea', 'China', 'Taiwan', 'Thailand',
+  'Singapore', 'Hong Kong', 'UAE', 'South Africa', 'Brazil', 'Mexico', 'Colombia', 'Chile',
+  'Canada', 'United States', 'Ireland',
+];
+---
+
+<Layout
+  title="About"
+  description="AWISEE is a fully remote link building, SEO and digital PR agency founded in 2018, operating across 35+ countries with a team of 20+ specialists."
+>
+  <!-- Hero -->
+  <section class="px-6 pt-20 pb-16 lg:px-8 lg:pt-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+        About AWISEE
+      </p>
+      <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl" style="animation-delay: 80ms">
+        The people behind your link building, SEO and PR programme.
+      </h1>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="px-6 pb-16 lg:px-8">
+    <div class="mx-auto grid max-w-5xl grid-cols-2 gap-4 lg:grid-cols-4" data-reveal-group>
+      {stats.map((stat) => (
+        <div class="rounded-3xl border border-ink/10 bg-paper-dim p-8 text-center dark:border-paper/10 dark:bg-ink-soft">
+          <p class="font-display text-4xl font-bold text-brand-500">{stat.value}</p>
+          <p class="mt-2 text-sm text-ink/60 dark:text-paper/60">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Founder quote -->
+  <section class="px-6 py-16 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center" data-reveal>
+      <p class="font-display text-2xl font-medium text-balance sm:text-3xl">
+        "We didn't set out to build an agency. We set out to get one client real results — everything since has followed from that."
+      </p>
+      <p class="mt-6 text-sm font-semibold text-ink/60 dark:text-paper/60">
+        Gustavo Andersson, CEO &amp; Founder
+      </p>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="border-t border-ink/10 bg-paper-dim px-6 py-24 dark:border-paper/10 dark:bg-ink-soft lg:px-8">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">How we operate</h2>
+      <div class="mt-12 grid gap-6 sm:grid-cols-2" data-reveal-group>
+        {principles.map((p) => (
+          <div class="rounded-3xl border border-ink/10 bg-paper p-8 dark:border-paper/10 dark:bg-ink">
+            <h3 class="font-display text-lg font-semibold">{p.title}</h3>
+            <p class="mt-3 text-sm text-ink/60 dark:text-paper/60">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">Fully remote, deliberately so</h2>
+      <p class="mt-4 text-ink/70 dark:text-paper/70">
+        We've operated as a remote-first team since founding in 2018 — not as a pandemic-era concession, but because it lets us hire the right specialist for a market regardless of postcode. Our 20+ specialists work across the regions we serve, which means outreach happens in the target language, from someone who understands the local media landscape, rather than through translation software.
+      </p>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="border-t border-ink/10 bg-paper-dim px-6 py-24 dark:border-paper/10 dark:bg-ink-soft lg:px-8">
+    <div class="mx-auto grid max-w-5xl gap-6 sm:grid-cols-2" data-reveal-group>
+      {testimonials.map((t) => (
+        <figure class="rounded-3xl border border-ink/10 bg-paper p-8 dark:border-paper/10 dark:bg-ink">
+          <blockquote class="text-lg font-medium text-balance">"{t.quote}"</blockquote>
+          <figcaption class="mt-4 text-sm text-ink/60 dark:text-paper/60">
+            {t.name} · {t.role}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- Regions -->
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="font-display text-3xl font-bold tracking-tight sm:text-4xl">Where we work</h2>
+      <p class="mt-4 max-w-2xl text-ink/70 dark:text-paper/70">
+        Our network and in-market specialists span 35+ countries, including:
+      </p>
+      <div class="mt-8 flex flex-wrap gap-2.5" data-reveal-group>
+        {regions.map((region) => (
+          <span class="rounded-full border border-ink/10 px-4 py-1.5 text-sm text-ink/70 dark:border-paper/15 dark:text-paper/70">
+            {region}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-3xl rounded-3xl bg-ink px-8 py-16 text-center dark:bg-paper" data-reveal>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl dark:text-ink">
+        Want to see if we're a fit?
+      </h2>
+      <a
+        href="/contact"
+        class="mt-8 inline-block rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 dark:bg-ink dark:text-paper"
+      >
+        Book an intro call
+      </a>
+    </div>
+  </section>
+</Layout>

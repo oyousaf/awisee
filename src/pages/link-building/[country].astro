@@ -1,0 +1,93 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const countries = await getCollection('regions');
+  return countries.map((entry) => ({
+    params: { country: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { country, region, intro, languages, highlights, testimonial } = entry.data;
+const { Content } = await render(entry);
+---
+
+<Layout
+  title={`Link Building in ${country}`}
+  description={`Link building services in ${country}: ${intro}`}
+>
+  <section class="px-6 pt-20 pb-16 lg:px-8 lg:pt-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+        {region} · Link Building
+      </p>
+      <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl" style="animation-delay: 80ms">
+        Link Building in {country}
+      </h1>
+      <p class="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-ink/70 dark:text-paper/70" style="animation-delay: 160ms">
+        {intro}
+      </p>
+      <div class="animate-fade-up mt-10 flex flex-wrap items-center justify-center gap-4" style="animation-delay: 240ms">
+        <a
+          href="/contact"
+          class="rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5 dark:bg-paper dark:text-ink"
+        >
+          Book an intro call
+        </a>
+        <a
+          href="/link-building"
+          class="rounded-full border border-ink/15 px-7 py-3.5 text-sm font-semibold transition-colors hover:border-ink/30 dark:border-paper/20 dark:hover:border-paper/40"
+        >
+          All countries
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-ink/10 bg-paper-dim px-6 py-16 dark:border-paper/10 dark:bg-ink-soft lg:px-8">
+    <div class="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2" data-reveal-group>
+      {highlights.map((point) => (
+        <div class="rounded-2xl border border-ink/10 bg-paper p-6 dark:border-paper/10 dark:bg-ink">
+          <p class="text-sm text-ink/70 dark:text-paper/70">{point}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-8 text-center text-sm text-ink/50 dark:text-paper/50">
+      Outreach languages: {languages.join(', ')}
+    </p>
+  </section>
+
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-3xl prose prose-headings:font-display prose-headings:font-bold dark:prose-invert">
+      <Content />
+    </div>
+  </section>
+
+  {testimonial && (
+    <section class="border-t border-ink/10 bg-paper-dim px-6 py-24 dark:border-paper/10 dark:bg-ink-soft lg:px-8">
+      <figure class="mx-auto max-w-2xl rounded-3xl border border-ink/10 bg-paper p-8 text-center dark:border-paper/10 dark:bg-ink" data-reveal>
+        <blockquote class="text-lg font-medium text-balance">"{testimonial.quote}"</blockquote>
+        <figcaption class="mt-4 text-sm text-ink/60 dark:text-paper/60">
+          {testimonial.name} · {testimonial.role}
+        </figcaption>
+      </figure>
+    </section>
+  )}
+
+  <section class="px-6 py-24 lg:px-8">
+    <div class="mx-auto max-w-3xl rounded-3xl bg-ink px-8 py-16 text-center dark:bg-paper" data-reveal>
+      <h2 class="font-display text-3xl font-bold tracking-tight text-paper sm:text-4xl dark:text-ink">
+        Ready to build links in {country}?
+      </h2>
+      <a
+        href="/contact"
+        class="mt-8 inline-block rounded-full bg-paper px-7 py-3.5 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 dark:bg-ink dark:text-paper"
+      >
+        Book an intro call
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const steps = [
+  {
+    title: 'Scope the gap in your current reach',
+    body: 'Most agency partners come to us needing coverage in markets or languages their current team doesn’t have in-house — we scope exactly where that gap sits.',
+  },
+  {
+    title: 'Work under your brand',
+    body: 'Delivery happens behind the scenes. Your client relationship, reporting and account management stay entirely yours.',
+  },
+  {
+    title: 'Plug into our existing network',
+    body: 'Rather than building outreach capacity from scratch, you draw on a network of 250,000+ sites already vetted across 35+ countries.',
+  },
+  {
+    title: 'Scale up or down per client',
+    body: 'Partnerships flex per engagement — a single client’s international expansion, or ongoing white-label delivery across your whole roster.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Will our client know AWISEE is involved?',
+    answer: 'Only if you want them to. Most partnerships run entirely white-label — reporting, communication and delivery are formatted to appear as your own team’s work.',
+  },
+  {
+    question: 'What size of agency do you typically partner with?',
+    answer: 'From small specialist shops needing occasional international reach, to larger agencies white-labelling link building or PR as a standing part of their service line.',
+  },
+  {
+    question: 'How is pricing structured?',
+    answer: 'Per-engagement or retainer, depending on volume and consistency of need — we’ll scope this against what your client roster actually requires.',
+  },
+];
+---
+
+<Layout
+  title="Agency Partnerships"
+  description="White-label link building, SEO and digital PR for agencies who need reach beyond their current market without hiring for it."
+>
+  <ServiceDetail
+    eyebrow="Agency Partnerships"
+    title="Extend your reach. Keep your name on it."
+    intro="White-label link building and outreach for agencies who need reach beyond their current market — without hiring, training or managing a new team for it."
+    steps={steps}
+    faqs={faqs}
+  />
+</Layout>

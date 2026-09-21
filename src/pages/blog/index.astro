@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+
+const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout
+  title="Blog"
+  description="Notes on link building, SEO and digital PR from the AWISEE team."
+>
+  <section class="px-6 pt-20 pb-16 lg:px-8 lg:pt-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+        Blog
+      </p>
+      <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl" style="animation-delay: 80ms">
+        Notes from the field.
+      </h1>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-8">
+    <div class="mx-auto max-w-3xl space-y-4" data-reveal-group>
+      {posts.map((post) => (
+        <a
+          href={`/blog/${post.id}`}
+          class="group block rounded-3xl border border-ink/10 p-8 transition-colors hover:border-brand-400/50 hover:bg-brand-50 dark:border-paper/10 dark:hover:bg-brand-900/20"
+        >
+          <p class="text-xs font-medium text-ink/50 dark:text-paper/50">
+            {dateFormatter.format(post.data.publishDate)} · {post.data.tags.join(', ')}
+          </p>
+          <h2 class="mt-2 font-display text-xl font-semibold">{post.data.title}</h2>
+          <p class="mt-2 text-sm text-ink/60 dark:text-paper/60">{post.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

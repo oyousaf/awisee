@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const steps = [
+  {
+    title: 'Audit against your actual competitors',
+    body: 'Technical, on-page and off-page performance is benchmarked against the sites actually competing for your terms — not a generic industry template.',
+  },
+  {
+    title: 'Prioritise for regulated realities',
+    body: 'iGaming, crypto, healthcare and finance carry compliance constraints most agencies haven’t worked within. We build strategy around them, not despite them.',
+  },
+  {
+    title: 'Fix technical foundations first',
+    body: 'Crawlability, indexation and Core Web Vitals are resolved before content and links are layered on — no point building on a page Google can’t read.',
+  },
+  {
+    title: 'Compound content and authority together',
+    body: 'Content strategy and link building run in the same programme, so new pages earn authority from day one rather than waiting months to rank.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Which industries do you specialise in?',
+    answer: 'iGaming, crypto, SaaS and healthcare most heavily — markets where generic SEO playbooks and templated audits tend to fall short of what the niche actually requires.',
+  },
+  {
+    question: 'Do you handle technical SEO or just content and links?',
+    answer: 'Both. A content and link programme built on a technically broken site underperforms, so technical health is assessed and fixed as part of the engagement.',
+  },
+  {
+    question: 'How do you measure success?',
+    answer: 'Ranking movement on target terms, organic traffic, and — where attribution allows — the revenue or lead volume those rankings actually generate.',
+  },
+];
+---
+
+<Layout
+  title="SEO"
+  description="Search programmes built for regulated, competitive niches — iGaming, crypto, SaaS and healthcare — where generic playbooks fall short."
+>
+  <ServiceDetail
+    eyebrow="SEO"
+    title="Search strategy for markets that punish shortcuts."
+    intro="Programmes built for iGaming, crypto, SaaS and healthcare — niches where a generic playbook gets you penalised, not ranked."
+    steps={steps}
+    faqs={faqs}
+  />
+</Layout>

@@ -1,0 +1,26 @@
+# build output
+dist/
+.vercel/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# agentic tooling
+AGENTS.md
+CLAUDE.md
+.claude/
+.cursor/
+.windsurf/
+
+# logs
+npm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store

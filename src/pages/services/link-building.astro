@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const steps = [
+  {
+    title: 'Research the right sites, not just any sites',
+    body: 'We identify publications relevant to your niche and audience — domain authority matters, but so does whether the readership actually overlaps with your customers.',
+  },
+  {
+    title: 'Plan the anchor text profile',
+    body: 'Naked, branded, exact-match and generic anchors are balanced deliberately, so the link profile reads as natural to search engines rather than engineered.',
+  },
+  {
+    title: 'Write content worth publishing',
+    body: 'Guest posts and outreach content are written to the target site’s standard, in the target language, by writers who work in that market — not translated after the fact.',
+  },
+  {
+    title: 'Secure permanent, do-follow placements',
+    body: 'We negotiate links without expiry windows or no-follow tags slipped in after publication, and verify every placement stays live.',
+  },
+  {
+    title: 'Track what actually moved',
+    body: 'Rankings, referral traffic and (where visibility allows) revenue impact are reported against baseline — not just a list of URLs delivered.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What counts as a quality backlink?',
+    answer: 'One from a site with real, relevant traffic and editorial standards — not a directory, a private blog network, or a site that exists solely to sell links.',
+  },
+  {
+    question: 'How long do placements take to affect rankings?',
+    answer: 'Most clients see measurable movement within eight to twelve weeks, though this varies by niche competitiveness and your existing domain authority.',
+  },
+  {
+    question: 'Do you work in non-English markets?',
+    answer: 'Yes — our network and in-house writers cover 35+ countries, with outreach conducted in the local language by people who understand that market’s media landscape.',
+  },
+];
+---
+
+<Layout
+  title="Link Building"
+  description="Editorial backlinks earned through a vetted network of 250,000+ sites across Europe, Latin America, APAC and North America."
+>
+  <ServiceDetail
+    eyebrow="Link Building"
+    title="Links that hold up to scrutiny."
+    intro="Editorial backlinks from a vetted network of 250,000+ sites, built to withstand an algorithm update rather than exploit one."
+    steps={steps}
+    faqs={faqs}
+  />
+  <section class="px-6 pb-24 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <a href="/link-building" class="text-sm font-semibold text-brand-600 hover:underline dark:text-brand-300">
+        Browse link building by country →
+      </a>
+    </div>
+  </section>
+</Layout>

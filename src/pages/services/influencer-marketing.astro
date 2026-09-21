@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceDetail from '../../components/ServiceDetail.astro';
+
+const steps = [
+  {
+    title: 'Match tier to objective',
+    body: 'KOL, macro, micro and nano creators serve different goals — reach, credibility, or conversion. We match tier to what you’re actually trying to achieve, rather than defaulting to whoever has the biggest following.',
+  },
+  {
+    title: 'Vet for real audience overlap',
+    body: 'Engagement authenticity and audience-market fit are checked before outreach — follower count is the least useful number in this business.',
+  },
+  {
+    title: 'Negotiate and brief properly',
+    body: 'Creators get a brief that respects their format and audience, not a script that reads like an advert bolted onto their channel.',
+  },
+  {
+    title: 'Track beyond vanity metrics',
+    body: 'Reach and engagement are reported alongside referral traffic and, where trackable, conversions — so you know what the spend actually returned.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'What’s the difference between KOL and influencer marketing?',
+    answer: 'KOL (Key Opinion Leader) campaigns lean on established credibility and trust within a niche, often at a higher tier than typical influencer marketing, and are especially relevant in APAC markets.',
+  },
+  {
+    question: 'Do you handle contracts and payment directly with creators?',
+    answer: 'Yes — we manage negotiation, briefing, contracting and payment, so you’re dealing with one point of contact rather than a roster of individual creators.',
+  },
+  {
+    question: 'Can this run alongside a link building or SEO programme?',
+    answer: 'It’s designed to. Influencer content often generates the organic mentions and referral traffic that a parallel SEO programme can compound.',
+  },
+];
+---
+
+<Layout
+  title="Influencer Marketing"
+  description="KOL, macro, micro and nano influencer campaigns matched to the audience that actually converts, not just follower count."
+>
+  <ServiceDetail
+    eyebrow="Influencer Marketing"
+    title="Reach that's matched to the audience, not the follower count."
+    intro="KOL, macro, micro and nano campaigns built around real audience overlap — vetted relationships, not a spreadsheet of follower counts."
+    steps={steps}
+    faqs={faqs}
+  />
+</Layout>

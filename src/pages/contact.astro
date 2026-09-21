@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.tsx';
+---
+
+<Layout
+  title="Contact"
+  description="Get in touch with AWISEE about link building, SEO, digital PR, influencer marketing or agency partnerships."
+>
+  <section class="px-6 pt-20 pb-24 lg:px-8 lg:pt-28">
+    <div class="mx-auto grid max-w-5xl gap-16 lg:grid-cols-2">
+      <div>
+        <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+          Contact
+        </p>
+        <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl" style="animation-delay: 80ms">
+          Let's talk.
+        </h1>
+        <p class="animate-fade-up mt-6 max-w-md text-lg text-ink/70 dark:text-paper/70" style="animation-delay: 160ms">
+          Tell us what you're working on. We'll reply within one business day, and tell you plainly whether we're the right fit.
+        </p>
+        <dl class="animate-fade-up mt-10 space-y-4 text-sm" style="animation-delay: 240ms">
+          <div>
+            <dt class="font-semibold">Email</dt>
+            <dd class="text-ink/60 dark:text-paper/60">
+              <a href="mailto:b2b@awisee.com" class="hover:text-ink dark:hover:text-paper">b2b@awisee.com</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Telegram</dt>
+            <dd class="text-ink/60 dark:text-paper/60">
+              <a href="https://t.me/awiseeagency" class="hover:text-ink dark:hover:text-paper">@awiseeagency</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="font-semibold">WhatsApp</dt>
+            <dd class="text-ink/60 dark:text-paper/60">
+              <a href="https://wa.me/46735716250" class="hover:text-ink dark:hover:text-paper">+46 735 716 250</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="font-semibold">Based</dt>
+            <dd class="text-ink/60 dark:text-paper/60">Fully remote, since 2018</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="animate-fade-up" style="animation-delay: 320ms">
+        <ContactForm client:visible />
+      </div>
+    </div>
+  </section>
+</Layout>

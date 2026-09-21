@@ -1,0 +1,104 @@
+---
+const navItems = [
+  { label: 'Services', href: '/services' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'About', href: '/about' },
+  { label: 'Blog', href: '/blog' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-ink/10 bg-paper/80 backdrop-blur-md dark:border-paper/10 dark:bg-ink/80">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <a href="/" class="font-display text-xl font-bold tracking-tight">
+      AWISEE<span class="text-accent">.</span>
+    </a>
+
+    <nav class="hidden items-center gap-8 md:flex" aria-label="Primary">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-sm font-medium text-ink/70 transition-colors hover:text-ink dark:text-paper/70 dark:hover:text-paper"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="grid h-9 w-9 place-items-center rounded-full border border-ink/10 text-ink/70 transition-colors hover:border-ink/30 hover:text-ink dark:border-paper/15 dark:text-paper/70 dark:hover:border-paper/30 dark:hover:text-paper"
+      >
+        <span aria-hidden="true">◐</span>
+      </button>
+      <a
+        href="/contact"
+        class="hidden rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5 dark:bg-paper dark:text-ink sm:inline-block"
+      >
+        Book a call
+      </a>
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        class="grid h-9 w-9 place-items-center rounded-full border border-ink/10 dark:border-paper/15 md:hidden"
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden flex-col gap-1 border-t border-ink/10 px-6 py-4 dark:border-paper/10 md:hidden"
+    aria-label="Mobile"
+  >
+    {navItems.map((item) => (
+      <a href={item.href} class="rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-ink/5 dark:hover:bg-paper/10">
+        {item.label}
+      </a>
+    ))}
+    <a href="/contact" class="mt-2 rounded-full bg-ink px-5 py-2.5 text-center text-sm font-semibold text-paper dark:bg-paper dark:text-ink">
+      Book a call
+    </a>
+  </nav>
+</header>
+
+<script>
+  declare global {
+    interface Window {
+      __awiseeHeaderDelegated?: boolean;
+    }
+  }
+
+  // Delegated on `document` (never replaced by view transitions) rather than
+  // bound directly to the header buttons — `transition:persist` doesn't
+  // reliably keep the exact node (and its listeners) across every swap, so a
+  // direct binding can silently stop firing after client-side navigation.
+  if (!window.__awiseeHeaderDelegated) {
+    window.__awiseeHeaderDelegated = true;
+
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+
+      if (target.closest('#theme-toggle')) {
+        const root = document.documentElement;
+        const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        localStorage.setItem('awisee-theme', next);
+        return;
+      }
+
+      const menuToggle = target.closest('#mobile-menu-toggle');
+      if (menuToggle) {
+        const menu = document.getElementById('mobile-menu');
+        const isOpen = menu?.classList.toggle('flex');
+        menu?.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', String(!!isOpen));
+      }
+    });
+  }
+</script>

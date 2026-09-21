@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const services = [
+  {
+    name: 'Link Building',
+    slug: 'link-building',
+    summary: 'Editorial backlinks earned through a vetted network of 250,000+ sites across Europe, Latin America, APAC and North America.',
+    detail: 'No expired domains, no link farms, no do-follow tags that vanish after thirty days.',
+  },
+  {
+    name: 'Digital PR',
+    slug: 'digital-pr',
+    summary: 'Earned coverage that builds authority and drives organic traffic in one motion.',
+    detail: 'Press and SEO run as one campaign, not two separate budgets reporting to two separate teams.',
+  },
+  {
+    name: 'SEO',
+    slug: 'seo',
+    summary: 'Search programmes built for regulated, competitive niches.',
+    detail: 'iGaming, crypto, SaaS and healthcare, where generic playbooks and templated audits fall short.',
+  },
+  {
+    name: 'Influencer Marketing',
+    slug: 'influencer-marketing',
+    summary: 'KOL, macro, micro and nano campaigns matched to the audience that actually converts.',
+    detail: 'Vetted creator relationships, not a spreadsheet of follower counts.',
+  },
+  {
+    name: 'Agency Partnerships',
+    slug: 'agency-partnerships',
+    summary: 'White-label link building and outreach for agencies expanding beyond their current market.',
+    detail: 'Your client relationship stays yours. We work behind the scenes.',
+  },
+];
+---
+
+<Layout
+  title="Services"
+  description="Link building, digital PR, SEO, influencer marketing and white-label agency partnerships — one team, run as a single funnel rather than separate silos."
+>
+  <section class="px-6 pt-20 pb-16 lg:px-8 lg:pt-28">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+        Services
+      </p>
+      <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl lg:text-6xl" style="animation-delay: 80ms">
+        One team, full funnel.
+      </h1>
+      <p class="animate-fade-up mx-auto mt-6 max-w-xl text-lg text-ink/70 dark:text-paper/70" style="animation-delay: 160ms">
+        Five disciplines, run as a single programme rather than five separate vendors.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 lg:px-8">
+    <div class="mx-auto grid max-w-5xl gap-4" data-reveal-group>
+      {services.map((service) => (
+        <a
+          href={`/services/${service.slug}`}
+          class="group flex flex-col justify-between gap-4 rounded-3xl border border-ink/10 p-8 transition-colors hover:border-brand-400/50 hover:bg-brand-50 sm:flex-row sm:items-center dark:border-paper/10 dark:hover:bg-brand-900/20"
+        >
+          <div>
+            <h2 class="font-display text-2xl font-semibold">{service.name}</h2>
+            <p class="mt-2 max-w-xl text-sm text-ink/60 dark:text-paper/60">{service.summary}</p>
+            <p class="mt-1 max-w-xl text-sm text-ink/50 dark:text-paper/50">{service.detail}</p>
+          </div>
+          <span class="shrink-0 text-sm font-semibold text-brand-600 transition-transform group-hover:translate-x-1 dark:text-brand-300">
+            Learn more →
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

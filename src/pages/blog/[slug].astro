@@ -1,0 +1,45 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, description, author, publishDate, tags } = entry.data;
+const { Content } = await render(entry);
+
+const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout title={title} description={description}>
+  <article class="px-6 pt-20 pb-24 lg:px-8 lg:pt-28">
+    <div class="mx-auto max-w-3xl">
+      <p class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-accent-ink uppercase">
+        {tags.join(' · ')}
+      </p>
+      <h1 class="animate-fade-up mt-6 font-display text-4xl font-bold tracking-tight text-balance sm:text-5xl" style="animation-delay: 80ms">
+        {title}
+      </h1>
+      <p class="animate-fade-up mt-4 text-sm text-ink/50 dark:text-paper/50" style="animation-delay: 160ms">
+        {author} · {dateFormatter.format(publishDate)}
+      </p>
+
+      <div class="prose prose-headings:font-display prose-headings:font-bold mt-10 dark:prose-invert">
+        <Content />
+      </div>
+
+      <a
+        href="/blog"
+        class="mt-12 inline-block text-sm font-semibold text-brand-600 hover:underline dark:text-brand-300"
+      >
+        ← All posts
+      </a>
+    </div>
+  </article>
+</Layout>
