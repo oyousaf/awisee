@@ -81,6 +81,30 @@ const year = new Date().getFullYear();
         <a href="https://t.me/awiseeagency" class="hover:text-ink dark:hover:text-paper">Telegram</a>
         <a href="https://wa.me/46735716250" class="hover:text-ink dark:hover:text-paper">WhatsApp</a>
       </div>
+      <p class="signature flex items-center gap-1.5">
+        <span>Built with</span>
+        <span class="signature-heart" aria-hidden="true">💚</span>
+        <span
+          >by <a href="https://legxcysol.dev" target="_blank" rel="noopener noreferrer" class="font-medium hover:text-ink dark:hover:text-paper">Legxcy Solutions</a></span
+        >
+      </p>
     </div>
   </div>
 </footer>
+
+<style>
+  .signature-heart {
+    display: inline-block;
+    animation: signature-spin 7s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .signature-heart {
+      animation: none;
+    }
+  }
+  @keyframes signature-spin {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+</style>
