@@ -19,8 +19,6 @@ The previous site ran on WordPress + WPML, with over 60 near-duplicate hand-auth
 - A distinctive visual identity (violet-magenta + lime accent on an ink/paper base) built to read as confident and a little quirky, not template-agency generic
 - Dark mode, native scroll-driven animation, and a Lighthouse-first performance bar, since site performance is part of what this agency sells
 
-See `.claude/` conversation history or ask for the working plan doc for the full build order and design rationale.
-
 ## Commands
 
 | Command | Action |
